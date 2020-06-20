@@ -1,15 +1,26 @@
 package conditionals
 
 fun main(args: Array<String>) {
-    val mode: Int = 5
+    val mode: Int = 2
 
-    when(mode){
-        1-> print("The mode is lazy")
+    val result = when(mode){
+        1-> "The mode is lazy"
         2->{
-            println("The mode is 2 ")
-            println("So the mode is busy")
+            "So the mode is busy"
         }
-        3-> println("The mode is super-productive")
-        else-> println("I don't know which is mode")
+        3-> "The mode is super-productive"
+        else-> "I don't know which is mode"
     }
+
+    println(result)
+
+    val x = if (mode<2){
+        println("Mode is less than 2")
+        17
+    }else{
+        42
+    }
+
+    println(x)
+
 }
