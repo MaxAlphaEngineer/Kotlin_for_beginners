@@ -4,7 +4,7 @@ abstract class People(open val name: String, open val age: Int) {
 
     abstract fun speak()
 
-    fun greet() {
+   open fun greet() {
         println("Good morning $name!")
     }
 
@@ -15,6 +15,10 @@ class Student(override val name: String, override val age: Int, val id: Long) : 
 
     override fun speak() {
         println("Hello I am $name. I am $age years old. My student id: $id")
+    }
+
+     override fun greet() {
+        super.greet()
     }
 
     fun details() {
@@ -32,6 +36,7 @@ class Employee(override val name: String, override val age: Int) : People(name, 
 fun main(args: Array<String>) {
     val student = Student("Azamat", 20, 12345)
 
+    student.greet()
     student.speak()
 
     val employee = Employee("Azizbek", 43)
