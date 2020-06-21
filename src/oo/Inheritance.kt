@@ -1,12 +1,10 @@
 package oo
 
-open class People(open val name: String, open val age: Int) {
+abstract class People(open val name: String, open val age: Int) {
 
-    fun speak() {
-        println("Hi")
-    }
+    abstract fun speak()
 
-    fun greet(greating: String) {
+    fun greet() {
         println("Good morning $name!")
     }
 
@@ -15,6 +13,10 @@ open class People(open val name: String, open val age: Int) {
 
 class Student(override val name: String, override val age: Int, val id: Long) : People(name, age) {
 
+    override fun speak() {
+        println("Hello I am $name. I am $age years old. My student id: $id")
+    }
+
     fun details() {
         println("Student id: $id")
     }
@@ -22,15 +24,17 @@ class Student(override val name: String, override val age: Int, val id: Long) : 
 
 class Employee(override val name: String, override val age: Int) : People(name, age) {
 
+    override fun speak() {
+        println("Hello I am $name. I am $age years old. I am employee")
+    }
 }
 
 fun main(args: Array<String>) {
     val student = Student("Azamat", 20, 12345)
 
     student.speak()
-    student.details()
 
     val employee = Employee("Azizbek", 43)
-    employee.greet("shi")
+    employee.speak()
 
 }
